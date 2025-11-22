@@ -1,70 +1,330 @@
-# Getting Started with Create React App
+LIU Exam System
+A comprehensive Smart Exam & Room Scheduling Management System for universities, built with React.js.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Features
+Core Functionality
+Smart Exam Scheduling: Automated conflict-free exam scheduling with intelligent room assignment
 
-## Available Scripts
+Room Management: Manage classrooms with seat color system for efficient space utilization
 
-In the project directory, you can run:
+Course Management: Complete course catalog with prerequisites and enrollment tracking
 
-### `npm start`
+Faculty Management: Instructor profiles with workload balancing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Student Management: Student enrollment and course registration
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Conflict Detection: Automated detection of scheduling conflicts (room, instructor, student)
 
-### `npm test`
+Smart Features
+Seat Color System: Multiple exams can be scheduled in the same room using different seat colors
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Level-based Scheduling: Exams are grouped by course levels (100-400) for optimal scheduling
 
-### `npm run build`
+Auto Conflict Resolution: Intelligent algorithms prevent scheduling conflicts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Capacity Management: Room capacity validation and enrollment tracking
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Instructor Workload Balancing: Fair distribution of exam proctoring duties
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+👥 User Roles
+1. Administrator
+Full system access
 
-### `npm run eject`
+Manage courses, instructors, students, and rooms
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Schedule exams and generate reports
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+View and resolve conflicts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Instructor
+View assigned exams
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Access exam schedules and room assignments
 
-## Learn More
+Monitor student enrollment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Student
+View personal exam schedule
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Check room assignments and seat colors
 
-### Code Splitting
+Receive exam alerts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🏗️ System Architecture
+Frontend
+React.js with functional components and hooks
 
-### Analyzing the Bundle Size
+Local Storage for data persistence
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Responsive Design for all devices
 
-### Making a Progressive Web App
+Data Structure
+Courses: Code, name, level, department, instructor, capacity, prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Rooms: Name, building, capacity, seat colors, status
 
-### Advanced Configuration
+Exams: Course, date, time, room, seat color, instructor
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Instructors: Profile, department, workload, assigned courses
 
-### Deployment
+Students: Enrollment, courses, personal information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+📋 Installation & Setup
+Prerequisites
+Node.js (v14 or higher)
 
-### `npm run build` fails to minify
+npm or yarn
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Installation Steps
+Clone the repository:
+
+bash
+git clone <repository-url>
+cd liu-exam-system
+Install dependencies:
+
+bash
+npm install
+Start the development server:
+
+bash
+npm start
+Open http://localhost:3000 in your browser
+
+Default Login Credentials
+Administrator:
+
+ID: admin
+
+Password: admin
+
+Instructor:
+
+ID: instructor
+
+Password: instructor
+
+Student:
+
+ID: student
+
+Password: student
+
+📊 Key Components
+Core Modules
+AdminDashboard.js - Main admin interface with navigation
+
+ScheduleExams.js - Intelligent exam scheduling system
+
+ManageCourses.js - Course catalog management
+
+ManageRooms.js - Room and seat color management
+
+ManageInstructors.js - Faculty management
+
+ManageStudents.js - Student enrollment system
+
+ConflictReport.js - Conflict detection and reporting
+
+Utility Modules
+dataPersistence.js - Local storage management
+
+ExamAlert.js - Real-time exam notifications
+
+Login.js - Authentication system
+
+🎯 Smart Scheduling Algorithm
+Level-based Grouping
+100-level: Introductory courses
+
+200-level: Intermediate courses
+
+300-level: Advanced courses
+
+400-level: Senior-level courses
+
+Conflict Prevention
+Room Conflicts: Avoided using seat color system
+
+Instructor Conflicts: No same instructor at same time
+
+Student Conflicts: No overlapping exams for enrolled students
+
+Capacity Conflicts: Room size validation
+
+Scheduling Strategies
+Multiple week scheduling windows
+
+Priority-based room assignment
+
+Instructor workload distribution
+
+Student conflict minimization
+
+🎨 Seat Color System
+Purpose
+Allow multiple exams in the same room simultaneously by assigning different seat colors to different exams.
+
+Implementation
+Each room has configurable seat colors (Red, Green, Blue, Yellow, etc.)
+
+Exams in same room/time must have different seat colors
+
+Visual color coding in schedules and alerts
+
+Prevents physical seating conflicts
+
+📱 Usage Guide
+For Administrators
+Setup Courses
+
+Add courses with codes, levels, and departments
+
+Set prerequisites and capacities
+
+Assign instructors
+
+Manage Rooms
+
+Add classrooms with capacities
+
+Configure available seat colors
+
+Set room status (available, occupied, maintenance)
+
+Schedule Exams
+
+Use auto-scheduling for bulk scheduling
+
+Configure exam periods (midterm/final)
+
+Review and adjust generated schedule
+
+Monitor Conflicts
+
+View conflict reports
+
+Resolve scheduling issues
+
+Optimize room utilization
+
+For Instructors
+View assigned exam schedule
+
+Check room and seat color assignments
+
+Monitor student enrollment
+
+For Students
+View personal exam timetable
+
+Check room locations and seat colors
+
+Receive exam reminders
+
+🔧 Technical Details
+Data Persistence
+Uses browser LocalStorage
+
+Data survives browser refresh
+
+Default sample data provided
+
+Easy data reset functionality
+
+State Management
+React useState and useEffect hooks
+
+Component-level state management
+
+Memoized calculations for performance
+
+Responsive Design
+Mobile-friendly interfaces
+
+Adaptive layouts for different screen sizes
+
+Accessible color schemes and contrasts
+
+🚨 Exam Alert System
+Features
+Real-time countdown timer
+
+Cannot-be-closed during exam period
+
+Displays critical exam information
+
+Seat color emphasis
+
+Trigger Conditions
+Active exam within 2-hour window
+
+Automatic display
+
+Manual dismissal not allowed
+
+📈 Reporting & Analytics
+Available Reports
+Conflict Report: Room, instructor, and student conflicts
+
+Schedule Summary: Exam statistics and room utilization
+
+Instructor Workload: Teaching load distribution
+
+Capacity Analysis: Room usage efficiency
+
+🔄 Data Management
+Backup & Reset
+Local storage automatically persists data
+
+Default data can be restored
+
+Individual component data reset options
+
+Clear all data functionality
+
+Sample Data
+The system comes with pre-loaded sample data:
+
+Default courses across different levels
+
+Sample rooms with capacities
+
+Instructor profiles
+
+Student enrollments
+
+🛠️ Troubleshooting
+Common Issues
+Data Not Persisting
+
+Check browser localStorage support
+
+Clear browser cache and reload
+
+Use reset functionality
+
+Scheduling Conflicts
+
+Review conflict report
+
+Adjust room seat colors
+
+Modify exam timing
+
+Performance Issues
+
+Browser cache clearance
+
+Reduce large data sets
+
+Use filtering for large lists
+
+Support
+For technical issues or feature requests, contact the development team.
+
+📄 License
+This project is developed for educational and institutional use.
+
+🎓 About
+Developed for Lebanese International University (LIU) to streamline exam scheduling and room management processes.
